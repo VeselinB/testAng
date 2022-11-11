@@ -1,0 +1,32 @@
+.form {
+    width: 50%;
+}
+
+.select {
+    background-color: grey;
+    border-radius: 5%;
+    color: white;
+}
+
+.line {
+    display: flex;
+    width: 100%;
+    margin: 0 0 8px 0;
+}
+
+.error input{
+    border-color: red !important;
+}
+
+.line input {
+    width: 100%;
+}
+
+.line label {
+    min-width: 100px;
+}
+
+.button {
+    display: flex;
+    flex-direction: row-reverse;
+}

@@ -1,0 +1,33 @@
+<h1>Aareon Angular Test</h1>
+<form [formGroup]="form" class="form">
+  <div>
+    <div class="line">
+      <label>Title</label>
+      <select formControlName="title" (change)="selectTitle($event)">
+        <option disabled>-- Select an option --</option>
+        <option *ngFor="let title of titles" [value]="title.name">
+          <span style="width: 50px" *ngIf="title.isDefault">&#10004;</span>
+          <div class="option">{{title.name}}</div>
+        </option>
+      </select>
+    </div>
+    <div class="line">
+      <label>First name</label>
+      <input formControlName="firstName" type="text" placeholder="First name" />
+    </div>
+    <div class="line" [ngClass]="{'error': invalidLastNameField}">
+      <label>Last name</label>
+      <input (focus)="validateLastNameField($event)" (focusout)="validateLastNameField($event)"   formControlName="lastName" type="text"
+        placeholder="Last name" />
+    </div>
+
+    <span *ngIf="invalidLastNameField" style="color: red;">*Last name is mandatory</span>
+    <div>
+      <input type="checkbox" (change)="checkbox($event)" />
+      <label>I accept the terms & conditions</label>
+    </div>
+    <div class="button">
+      <button [disabled]="disableButton" (click)="submit()">Submit</button>
+    </div>
+  </div>
+</form>
